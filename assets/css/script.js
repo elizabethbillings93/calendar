@@ -15,3 +15,18 @@ $('.savebutton').on('click',function(){
    
 })
 
+var checkTime = function () {
+    var hour = $(".time-block-").text().trim();
+    var time = moment(hour, "LT");
+    console.log(time)
+    $("#entry1").removeClass();
+    if (moment().isAfter(time)) {
+        $("#entry1").addClass(".past");
+    } else if (moment().isBefore(time)) {
+        $("#entry1").addClass(".future");
+    } else {
+        $("#entry1").addClass(".present");
+    }
+}
+
+checkTime();
